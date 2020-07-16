@@ -15,3 +15,10 @@ router
     const res = await fetch('https://pokeapi.co/api/v2/pokemon/ditto/').then(res => res.json());
     context.response.body = JSON.stringify(res, null, 4);
   });
+
+const app = new Application();
+
+app.use(router.routes());
+app.use(router.allowedMethods());
+
+app.listen("0.0.0.0:8000");
