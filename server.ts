@@ -11,3 +11,7 @@ router
     const data = await readJson("./data.json");
     context.response.body = data;
   })
+  .get('/fetch', async context => {
+    const res = await fetch('https://pokeapi.co/api/v2/pokemon/ditto/').then(res => res.json());
+    context.response.body = JSON.stringify(res, null, 4);
+  });
